@@ -1,15 +1,19 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
+// const bcrypt = require('bcrypt')
 const { Schema } = mongoose
 
-const UserSchema = new Schema({
-  email: {
-    type: String,
-    index: { unique: true },
+const UserSchema = new Schema(
+  {
+    email: {
+      type: String,
+      index: { unique: true },
+      required: true,
+    },
+    password: { type: String, required: true },
+    name: { type: String, required: true },
   },
-  password: String,
-  name: String,
-})
+  { collection: 'user' }
+)
 
 // bycrypt password later on ^_^
 
